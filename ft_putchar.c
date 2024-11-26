@@ -6,7 +6,7 @@
 /*   By: mkhallou <mkhallou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:30:59 by mkhallou          #+#    #+#             */
-/*   Updated: 2024/11/25 21:58:47 by mkhallou         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:02:59 by mkhallou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	ft_putchar(int c, int *cp)
 {
-	write(1, &c, 1);
+	if (*cp == -1)
+		return ;
 	(*cp)++;
+	if (write(1, &c, 1) == -1)
+		*cp = -1;
 }

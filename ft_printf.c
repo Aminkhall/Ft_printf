@@ -6,7 +6,7 @@
 /*   By: mkhallou <mkhallou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:30:48 by mkhallou          #+#    #+#             */
-/*   Updated: 2024/11/26 15:41:13 by mkhallou         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:45:49 by mkhallou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_pors(int c, int *cp, va_list args)
 	else if (c == 'p')
 		ft_putaddress(va_arg(args, unsigned long long), cp);
 	else if (c == 'x' || c == 'X')
-		ft_puthex(va_arg(args, unsigned long long), c, cp);
+		ft_puthex(va_arg(args, unsigned int), c, cp);
 }
 
 int	ft_printf(const char *format, ...)
@@ -41,10 +41,10 @@ int	ft_printf(const char *format, ...)
 	cp = 0;
 	while (format[i])
 	{
-		if (format[i] && format[i] == '%')
-			check_pors(format[++i], &cp, args);
-		else
+		if (format[i] != '%')
 			ft_putchar(format[i], &cp);
+		else if (format[i] == '%' && format[i + 1])
+			check_pors(format[++i], &cp, args);
 		i++;
 	}
 	va_end(args);

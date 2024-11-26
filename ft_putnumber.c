@@ -6,7 +6,7 @@
 /*   By: mkhallou <mkhallou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 19:31:04 by mkhallou          #+#    #+#             */
-/*   Updated: 2024/11/25 19:32:54 by mkhallou         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:29:36 by mkhallou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putnbr(int num, int *cp)
 {
 	long	n;
 
+	if (*cp == -1)
+		return ;
 	n = num;
 	if (n < 0)
 	{
